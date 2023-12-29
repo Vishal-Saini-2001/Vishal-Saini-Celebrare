@@ -4,7 +4,7 @@ import {Context} from '../Context';
 var n = 1;
 export default function Editor() {
 
-    var fontAPI = "https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyAElFhsFNrc_b-o2BzbQb5kxPdFGvBueQM&sort=popularity";
+    var fontAPI = "https://www.googleapis.com/webfonts/v1/webfonts?key=<Your API Key>&sort=popularity";
     const [fonts,setFonts] = useState([]);
     const [size,setSize] = useState([]);
     const {textBoxes,setTextBoxes} = useContext(Context);
@@ -46,7 +46,7 @@ export default function Editor() {
         let option = document.getElementById("font");
         let font = option.options[option.selectedIndex].value;
         console.log(font);
-        let fontFamilyAPI = `https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyAElFhsFNrc_b-o2BzbQb5kxPdFGvBueQM&family=${font}`;
+        let fontFamilyAPI = `https://www.googleapis.com/webfonts/v1/webfonts?key=<Your API Key>&family=${font}`;
         await fetch(fontFamilyAPI)
         .then(res =>res.json())
         .then(fam => setFontFamily(fam.items[0].family))
